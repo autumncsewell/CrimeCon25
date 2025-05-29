@@ -2,25 +2,28 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>AR Photo</title>
+    <title>CrimeCon AR</title>
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.min.js"></script>
     <style>
       body { margin: 0; overflow: hidden; }
+      a-scene { width: 100vw; height: 100vh; }
     </style>
   </head>
   <body>
-    <a-scene embedded arjs="sourceType: webcam;">
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
+      vr-mode-ui="enabled: false">
+      
       <a-assets>
         <img id="courtImage" src="CourtTV.jpg">
       </a-assets>
 
-      <!-- Marker -->
       <a-marker preset="hiro">
-        <a-image src="#courtImage" position="0 0 0" rotation="-90 0 0" width="2" height="1"></a-image>
+        <a-image src="#courtImage" position="0 0.5 0" rotation="-90 0 0" width="2" height="1"></a-image>
       </a-marker>
 
-      <!-- Required camera -->
       <a-entity camera></a-entity>
     </a-scene>
   </body>
